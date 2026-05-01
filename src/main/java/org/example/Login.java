@@ -89,7 +89,24 @@ public class Login extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == login) {
-            // Future implementation
+            try {
+                String username = tfUsername.getText();
+                String password = tfPassword.getText();
+
+                String query = "SELECT * FROM account WHERE username = '" + username + "' AND password = '" + password + "'";
+                Conn c = new Conn();
+                java.sql.ResultSet rs = c.s.executeQuery(query);
+
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thành công!");
+                    setVisible(false);
+                    new Loading(username);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tên đăng nhập hoặc mật khẩu sai!");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else if (ae.getSource() == signup) {
             setVisible(false);
             new Signup();
