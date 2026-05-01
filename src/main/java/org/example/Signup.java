@@ -1,24 +1,23 @@
 package org.example;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Signup extends JFrame implements ActionListener {
 
-    JButton create, back;
-    JTextField tfUsername, tfName, tfPassword, tfAnswer;
-    Choice security;
+    JButton back;
 
     Signup() {
-        setBounds(350, 200, 900, 360);
+        setSize(900, 360);
+        setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
+        setVisible(true);
 
         JPanel p1 = new JPanel();
-        p1.setBackground(new Color(131, 193, 233));
+        p1.setBackground(new Color(133, 193, 233));
         p1.setBounds(0, 0, 500, 360);
         p1.setLayout(null);
         add(p1);
@@ -28,7 +27,7 @@ public class Signup extends JFrame implements ActionListener {
         lblUsername.setBounds(50, 20, 125, 25);
         p1.add(lblUsername);
 
-        tfUsername = new JTextField();
+        JTextField tfUsername = new JTextField();
         tfUsername.setBounds(190, 20, 180, 25);
         tfUsername.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfUsername);
@@ -38,7 +37,7 @@ public class Signup extends JFrame implements ActionListener {
         lblName.setBounds(50, 60, 125, 25);
         p1.add(lblName);
 
-        tfName = new JTextField();
+        JTextField tfName = new JTextField();
         tfName.setBounds(190, 60, 180, 25);
         tfName.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfName);
@@ -48,7 +47,7 @@ public class Signup extends JFrame implements ActionListener {
         lblPassword.setBounds(50, 100, 125, 25);
         p1.add(lblPassword);
 
-        tfPassword = new JTextField();
+        JTextField tfPassword = new JTextField();
         tfPassword.setBounds(190, 100, 180, 25);
         tfPassword.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfPassword);
@@ -58,8 +57,7 @@ public class Signup extends JFrame implements ActionListener {
         lblSecurity.setBounds(50, 140, 125, 25);
         p1.add(lblSecurity);
 
-        security = new Choice();
-        security.add("Tên nhân vật yêu thích");
+        Choice security = new Choice();
         security.add("Tên siêu anh hùng Marvel yêu thích");
         security.add("Số may mắn của bạn");
         security.add("Siêu anh hùng thời thơ ấu");
@@ -71,22 +69,21 @@ public class Signup extends JFrame implements ActionListener {
         lblAnswer.setBounds(50, 180, 125, 25);
         p1.add(lblAnswer);
 
-        tfAnswer = new JTextField();
+        JTextField tfAnswer = new JTextField();
         tfAnswer.setBounds(190, 180, 180, 25);
         tfAnswer.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfAnswer);
 
-        create = new JButton("Tạo");
-        create.setBackground(Color.WHITE);
-        create.setForeground(new Color(133, 193, 233));
+        JButton create = new JButton("Tạo");
+        create.setBackground(new Color(34, 139, 34));
+        create.setForeground(Color.WHITE);
         create.setFont(new Font("Tahoma", Font.BOLD, 14));
         create.setBounds(80, 250, 100, 30);
-        create.addActionListener(this);
         p1.add(create);
 
         back = new JButton("Quay lại");
-        back.setBackground(Color.WHITE);
-        back.setForeground(new Color(133, 193, 233));
+        back.setBackground(new Color(34, 139, 34));
+        back.setForeground(Color.WHITE);
         back.setFont(new Font("Tahoma", Font.BOLD, 14));
         back.setBounds(250, 250, 100, 30);
         back.addActionListener(this);
@@ -98,14 +95,10 @@ public class Signup extends JFrame implements ActionListener {
         JLabel image = new JLabel(i3);
         image.setBounds(580, 50, 250, 250);
         add(image);
-
-        setVisible(true);
     }
 
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == create) {
-            JOptionPane.showMessageDialog(null, "Tạo tài khoản thành công");
-        } else if (ae.getSource() == back) {
+        if (ae.getSource() == back) {
             setVisible(false);
             new Login();
         }
