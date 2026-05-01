@@ -7,7 +7,9 @@ import java.awt.event.ActionListener;
 
 public class Signup extends JFrame implements ActionListener {
 
-    JButton back;
+    JTextField tfUsername, tfName, tfPassword, tfAnswer;
+    Choice security;
+    JButton create, back;
 
     Signup() {
         setSize(900, 360);
@@ -27,7 +29,7 @@ public class Signup extends JFrame implements ActionListener {
         lblUsername.setBounds(50, 20, 125, 25);
         p1.add(lblUsername);
 
-        JTextField tfUsername = new JTextField();
+        tfUsername = new JTextField();
         tfUsername.setBounds(190, 20, 180, 25);
         tfUsername.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfUsername);
@@ -37,7 +39,7 @@ public class Signup extends JFrame implements ActionListener {
         lblName.setBounds(50, 60, 125, 25);
         p1.add(lblName);
 
-        JTextField tfName = new JTextField();
+        tfName = new JTextField();
         tfName.setBounds(190, 60, 180, 25);
         tfName.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfName);
@@ -47,7 +49,7 @@ public class Signup extends JFrame implements ActionListener {
         lblPassword.setBounds(50, 100, 125, 25);
         p1.add(lblPassword);
 
-        JTextField tfPassword = new JTextField();
+        tfPassword = new JTextField();
         tfPassword.setBounds(190, 100, 180, 25);
         tfPassword.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfPassword);
@@ -57,7 +59,7 @@ public class Signup extends JFrame implements ActionListener {
         lblSecurity.setBounds(50, 140, 125, 25);
         p1.add(lblSecurity);
 
-        Choice security = new Choice();
+        security = new Choice();
         security.add("Tên siêu anh hùng Marvel yêu thích");
         security.add("Số may mắn của bạn");
         security.add("Siêu anh hùng thời thơ ấu");
@@ -69,16 +71,17 @@ public class Signup extends JFrame implements ActionListener {
         lblAnswer.setBounds(50, 180, 125, 25);
         p1.add(lblAnswer);
 
-        JTextField tfAnswer = new JTextField();
+        tfAnswer = new JTextField();
         tfAnswer.setBounds(190, 180, 180, 25);
         tfAnswer.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfAnswer);
 
-        JButton create = new JButton("Tạo");
+        create = new JButton("Tạo");
         create.setBackground(new Color(34, 139, 34));
         create.setForeground(Color.WHITE);
         create.setFont(new Font("Tahoma", Font.BOLD, 14));
         create.setBounds(80, 250, 100, 30);
+        create.addActionListener(this);
         p1.add(create);
 
         back = new JButton("Quay lại");
@@ -98,7 +101,25 @@ public class Signup extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == back) {
+        if (ae.getSource() == create) {
+            String username = tfUsername.getText();
+            String name = tfName.getText();
+            String password = tfPassword.getText();
+            String question = security.getSelectedItem();
+            String answer = tfAnswer.getText();
+
+            String query = "insert into account values('" + username + "', '" + name + "', '" + password + "', '" + question + "', '" + answer + "')";
+
+            try {
+                Conn c = new Conn();
+                c.s.executeUpdate(query);
+                JOptionPane.showMessageDialog(null, "Tạo tài khoản thành công");
+                setVisible(false);
+                new Login();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (ae.getSource() == back) {
             setVisible(false);
             new Login();
         }
