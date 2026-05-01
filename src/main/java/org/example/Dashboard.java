@@ -58,6 +58,8 @@ public class Dashboard extends JFrame {
             new JButton("Thông tin")
         };
 
+        buttons[0].addActionListener(e -> new AddCustomer(username));
+
         int y = 0;
         for (JButton btn : buttons) {
             btn.setBounds(0, y, 300, 50);
