@@ -16,7 +16,6 @@ CREATE TABLE IF NOT EXISTS customer (
     number VARCHAR(20),
     name VARCHAR(30),
     gender VARCHAR(10),
-    country VARCHAR(20),
     address VARCHAR(50),
     phone VARCHAR(20),
     email VARCHAR(40)
@@ -26,5 +25,9 @@ CREATE TABLE IF NOT EXISTS customer (
 INSERT IGNORE INTO account (username, name, password, security_question, answer) 
 VALUES ('admin', 'Quản trị viên', '123456', 'Số may mắn của bạn', '7');
 
-INSERT IGNORE INTO customer (username, id_type, number, name, gender, country, address, phone, email)
-VALUES ('admin', 'Hộ chiếu', 'A12345678', 'Quản trị viên', 'Nam', 'Việt Nam', 'Hà Nội', '0912345678', 'admin@travel.com');
+INSERT IGNORE INTO customer (username, id_type, number, name, gender, address, phone, email)
+VALUES ('admin', 'Hộ chiếu', 'A12345678', 'Quản trị viên', 'Nam', 'Hà Nội', '0912345678', 'admin@travel.com'),
+       ('nguyenvana', 'Hộ chiếu', 'B87654321', 'Nguyễn Văn A', 'Nam', 'Đà Nẵng', '0987654321', 'nguyenvana@example.com'),
+       ('tranvanb', 'Hộ chiếu', 'C11223344', 'Trần Văn B', 'Nam', 'TP. Hồ Chí Minh', '0901234567', 'tranvanb@example.com'),
+       ('lethic', 'Hộ chiếu', 'D55667788', 'Lê Thị C', 'Nữ', 'Cần Thơ', '0934567890', 'lethic@example.com'),
+       ('phamvand', 'Hộ chiếu', 'E99887766', 'Phạm Văn D', 'Nam', 'Hải Phòng', '0978654321', 'phamvand@example.com');
