@@ -51,6 +51,7 @@ public class Dashboard extends JFrame {
             new JButton("Xem khách sạn"),
             new JButton("Đặt khách sạn"),
             new JButton("Xem phòng đã đặt"),
+            new JButton("Xem gói đã đặt"),
             new JButton("Điểm đến"),
             new JButton("Thanh toán"),
             new JButton("Máy tính"),
@@ -63,6 +64,7 @@ public class Dashboard extends JFrame {
         buttons[0].addActionListener(e -> new AddCustomer(username));
         buttons[1].addActionListener(e -> new UpdateCustomer(username));
         buttons[2].addActionListener(e -> new ViewCustomer(username));
+        buttons[10].addActionListener(e -> new ViewBookedPackage(username));
 
         int y = 0;
         for (JButton btn : buttons) {

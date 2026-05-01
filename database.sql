@@ -41,3 +41,7 @@ CREATE TABLE IF NOT EXISTS bookpackage (
     phone VARCHAR(20),
     price VARCHAR(20)
 );
+
+INSERT IGNORE INTO bookpackage (username, package, persons, id, number, phone, price)
+VALUES ('admin', 'Gói Vàng', '2', 'Hộ chiếu', 'A12345678', '0912345678', '24000 VND'),
+       ('nguyenvana', 'Gói Bạc', '1', 'Hộ chiếu', 'B87654321', '0987654321', '25000 VND');
