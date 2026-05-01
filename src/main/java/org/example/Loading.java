@@ -17,7 +17,7 @@ public class Loading extends JFrame implements Runnable {
                     bar.setValue(bar.getValue() + 1);
                 } else {
                     setVisible(false);
-                    // new Dashboard(username);
+                    new Dashboard(username);
                 }
                 Thread.sleep(50);
             }
@@ -30,13 +30,13 @@ public class Loading extends JFrame implements Runnable {
         this.username = username;
         t = new Thread(this);
 
-        setBounds(500, 200, 600, 400);
+        setBounds(500, 200, 650, 400);
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
         setLayout(null);
 
         JLabel text = new JLabel("Ứng Dụng Du Lịch và Du Ngoạn");
-        text.setBounds(50, 20, 600, 40);
+        text.setBounds(50, 20, 650, 40);
         text.setForeground(Color.BLUE);
         text.setFont(new Font("Raleway", Font.BOLD, 35));
         add(text);
