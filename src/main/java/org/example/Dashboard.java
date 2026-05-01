@@ -68,6 +68,7 @@ public class Dashboard extends JFrame {
         buttons[1].addActionListener(e -> new UpdateCustomer(username));
         buttons[2].addActionListener(e -> new ViewCustomer(username));
         buttons[10].addActionListener(e -> new ViewBookedPackage(username));
+        buttons[9].addActionListener(e -> new ViewBookedHotel(username));
 
         int y = 0;
         for (JButton btn : buttons) {
