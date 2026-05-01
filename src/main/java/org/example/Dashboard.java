@@ -58,6 +58,7 @@ public class Dashboard extends JFrame {
             new JButton("Thông tin")
         };
 
+        buttons[4].addActionListener(e -> new CheckPackage());
         buttons[0].addActionListener(e -> new AddCustomer(username));
         buttons[1].addActionListener(e -> new UpdateCustomer(username));
         buttons[2].addActionListener(e -> new ViewCustomer(username));
