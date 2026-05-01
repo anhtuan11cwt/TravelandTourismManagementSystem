@@ -60,6 +60,7 @@ public class Dashboard extends JFrame {
         };
 
         buttons[7].addActionListener(e -> new CheckHotels());
+        buttons[8].addActionListener(e -> new BookHotel(username));
         buttons[11].addActionListener(e -> new Destinations());
         buttons[4].addActionListener(e -> new CheckPackage());
         buttons[5].addActionListener(e -> new BookPackage(username));
