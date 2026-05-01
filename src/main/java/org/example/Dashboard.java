@@ -59,6 +59,24 @@ public class Dashboard extends JFrame {
             new JButton("Thông tin")
         };
 
+        buttons[3].addActionListener(e -> new DeleteDetails(username));
+        buttons[12].addActionListener(e -> new Payment());
+        buttons[13].addActionListener(e -> {
+            try {
+                Runtime.getRuntime().exec("calc.exe");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+        buttons[14].addActionListener(e -> {
+            try {
+                Runtime.getRuntime().exec("notepad.exe");
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+        buttons[15].addActionListener(e -> new About());
+
         buttons[7].addActionListener(e -> new CheckHotels());
         buttons[8].addActionListener(e -> new BookHotel(username));
         buttons[11].addActionListener(e -> new Destinations());
