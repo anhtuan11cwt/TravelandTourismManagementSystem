@@ -31,3 +31,13 @@ VALUES ('admin', 'Hộ chiếu', 'A12345678', 'Quản trị viên', 'Nam', 'Hà 
        ('tranvanb', 'Hộ chiếu', 'C11223344', 'Trần Văn B', 'Nam', 'TP. Hồ Chí Minh', '0901234567', 'tranvanb@example.com'),
        ('lethic', 'Hộ chiếu', 'D55667788', 'Lê Thị C', 'Nữ', 'Cần Thơ', '0934567890', 'lethic@example.com'),
        ('phamvand', 'Hộ chiếu', 'E99887766', 'Phạm Văn D', 'Nam', 'Hải Phòng', '0978654321', 'phamvand@example.com');
+
+CREATE TABLE IF NOT EXISTS bookpackage (
+    username VARCHAR(20),
+    package VARCHAR(30),
+    persons VARCHAR(20),
+    id VARCHAR(30),
+    number VARCHAR(20),
+    phone VARCHAR(20),
+    price VARCHAR(20)
+);
